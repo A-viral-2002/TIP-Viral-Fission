@@ -1,33 +1,24 @@
-def merge_sorted_arrays(A, B):
-    # Get the last non-empty index in A
-    k = len(A) - 1
-    while k >= 0 and A[k] is None:
-        k -= 1
-    
-    # Initialize pointers
-    i, j = k, len(B) - 1
-    k = len(A) - 1
-    
-    # Merge A and B in place
-    while i >= 0 and j >= 0:
-        if A[i] > B[j]:
-            A[k] = A[i]
-            i -= 1
-        else:
-            A[k] = B[j]
-            j -= 1
-        k -= 1
-    
-    # Copy remaining elements from B to A
-    while j >= 0:
-        A[k] = B[j]
-        j -= 1
-        k -= 1
-        
-    return A
+a=[1,3,5,6,8,None,None,None]
+b=[0,2,10]
 
-A = [1, 3, 5, 6, 8, None, None, None]
-B = [0, 2, 10]
-print(merge_sorted_arrays(A, B))
+for i in range(0,8):
+  if a[i] == None:
+    pos=i
+    break
+print(pos)
+j=0
+for pos in range(pos,8):
+  a[pos]=b[j]
+  j=j+1
 
-#The time complexity of the above code is O(m + n), where m and n are the lengths of the input arrays B and A, respectively.
+
+print(a)
+print(b)
+
+
+OUTPUT:
+5
+a=[1,3,5,6,8,0,2,10]    - ANS
+b=[0,2,10]
+
+#The time complexity of the above code is O(n)
